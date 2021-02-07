@@ -561,6 +561,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5889de85a50072e4bb257a8fe3b3b351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1010207399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 234907831, guid: b6ed947e8b468ee4a87cfeab723d4326,
+    type: 3}
+  m_PrefabInstance: {fileID: 329386804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592c0b301c95b3a4ba279e69ac639a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1055663208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1400,11 @@ PrefabInstance:
       propertyPath: EnemyUnits.Array.data[3]
       value: 
       objectReference: {fileID: 738164976}
+    - target: {fileID: 8881437741463096848, guid: 4ac842605e8798f4a9c686384ab7d7d3,
+        type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 1010207399}
     - target: {fileID: 8881437741463096849, guid: 4ac842605e8798f4a9c686384ab7d7d3,
         type: 3}
       propertyPath: m_LocalPosition.x
