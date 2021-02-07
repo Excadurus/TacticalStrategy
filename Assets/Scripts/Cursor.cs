@@ -32,6 +32,7 @@ public class Cursor : MonoBehaviour
         MoveCursor();
         SelectUnit();
         MoveUnit();
+        AttackWithUnit();
     }
 
     private void MoveCursor()
@@ -97,5 +98,18 @@ public class Cursor : MonoBehaviour
             selectedUnit.tile = tile;
             selectedUnit = null;
         }
+    }
+
+    private void AttackWithUnit()
+    {
+        if (Input.GetKeyDown(KeyCode.D) && selectedUnit != null && state == CursorState.WAITING_FOR_COMMAND && tile.unit != null)
+        {
+            state = CursorState.FREE_ROAM;
+            selectedUnit.GetComponent<Light>().enabled = false;
+            selectedUnit.Attack(tile.unit);
+            tile = selectedUnit.tile;
+            selectedUnit = null;
+        }
+
     }
 }

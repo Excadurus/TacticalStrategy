@@ -1157,6 +1157,10 @@ PrefabInstance:
       propertyPath: tiles
       value: 
       objectReference: {fileID: 565133559}
+    - target: {fileID: 234907831, guid: b6ed947e8b468ee4a87cfeab723d4326, type: 3}
+      propertyPath: gameboard
+      value: 
+      objectReference: {fileID: 565133559}
     - target: {fileID: 6320941542709141562, guid: b6ed947e8b468ee4a87cfeab723d4326,
         type: 3}
       propertyPath: m_Name
@@ -1836,7 +1840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920f47c3350094d498f9ab1b37114227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameboard:
+  rows:
   - {fileID: 1515843724}
   - {fileID: 882251469}
   - {fileID: 1734377581}

@@ -18,7 +18,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (this.hp == 0)
         {
-            GameObject.Destroy(this);
+            Destroy(this.gameObject);
         }
 
         transform.SetParent(tile.transform);
