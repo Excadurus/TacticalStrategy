@@ -2,11 +2,18 @@
 
 public abstract class Unit : MonoBehaviour
 {
+    protected enum ActionState
+    {
+        CAN_MOVE, CAN_ATTACK, TURN_ENDED, ENEMY_TURN
+    }
 
     [SerializeField] public Tile tile;
-    [SerializeField] private int hp = 20;
-    [SerializeField] private int dmg = 10;
-    [SerializeField] private int movementRange = 5;
+    [SerializeField] protected int hp = 20;
+    [SerializeField] protected int dmg = 10;
+    [SerializeField] protected int movementRange = 5;
+    protected ActionState actionState = ActionState.ENEMY_TURN;
+
+
     // Start is called before the first frame update
     void Start()
     {
