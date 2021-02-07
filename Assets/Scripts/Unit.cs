@@ -43,4 +43,34 @@ public abstract class Unit : MonoBehaviour
     //public virtual int ReturnMovementCost()
 
     public abstract void ChildUpdate();
+
+    public void ActivateUnit()
+    {
+        actionState = ActionState.CAN_MOVE;
+    }
+
+    public void FinishMove()
+    {
+        actionState = ActionState.CAN_ATTACK;
+    }
+
+    public void FinishTurn()
+    {
+        actionState = ActionState.TURN_ENDED;
+    }
+
+    public bool IsActive()
+    {
+        return actionState == ActionState.CAN_ATTACK || actionState == ActionState.CAN_MOVE;
+    }
+
+    public bool CanMove()
+    {
+        return actionState == ActionState.CAN_MOVE;
+    }
+
+    public bool CanAttack()
+    {
+        return actionState == ActionState.CAN_ATTACK;
+    }
 }

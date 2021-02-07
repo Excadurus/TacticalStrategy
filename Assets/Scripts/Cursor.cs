@@ -73,7 +73,7 @@ public class Cursor : MonoBehaviour
 
     private void SelectUnit()
     {
-        if (Input.GetKeyDown(KeyCode.A) && tile.unit != null && state == CursorState.FREE_ROAM)
+        if (Input.GetKeyDown(KeyCode.A) && tile.unit != null && state == CursorState.FREE_ROAM && tile.unit.IsActive())
         {
             state = CursorState.WAITING_FOR_COMMAND;
             selectedUnit = tile.unit;
@@ -91,25 +91,26 @@ public class Cursor : MonoBehaviour
 
     private void MoveUnit()
     {
-        if(Input.GetKeyDown(KeyCode.C) && selectedUnit != null && state == CursorState.WAITING_FOR_COMMAND)
+        if(Input.GetKeyDown(KeyCode.C) && selectedUnit != null && state == CursorState.WAITING_FOR_COMMAND && selectedUnit.CanMove())
         {
             state = CursorState.FREE_ROAM;
             selectedUnit.GetComponent<Light>().enabled = false;
             selectedUnit.tile = tile;
+            selectedUnit.FinishMove();
             selectedUnit = null;
         }
     }
 
     private void AttackWithUnit()
     {
-        if (Input.GetKeyDown(KeyCode.D) && selectedUnit != null && state == CursorState.WAITING_FOR_COMMAND && tile.unit != null)
+        if (Input.GetKeyDown(KeyCode.D) && selectedUnit != null && state == CursorState.WAITING_FOR_COMMAND && tile.unit != null && selectedUnit.IsActive())
         {
             state = CursorState.FREE_ROAM;
             selectedUnit.GetComponent<Light>().enabled = false;
             selectedUnit.Attack(tile.unit);
             tile = selectedUnit.tile;
+            selectedUnit.FinishTurn();
             selectedUnit = null;
         }
-
     }
 }
