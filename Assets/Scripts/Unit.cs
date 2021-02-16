@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Unit : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     protected enum ActionState
     {
@@ -8,9 +8,9 @@ public abstract class Unit : MonoBehaviour
     }
 
     [SerializeField] public Tile tile;
-    [SerializeField] protected int hp = 20;
-    [SerializeField] protected int dmg = 10;
-    [SerializeField] protected int movementRange = 5;
+    [SerializeField] int hp = 20;
+    [SerializeField] int dmg = 10;
+    [SerializeField] int movementRange = 5;
     protected ActionState actionState = ActionState.ENEMY_TURN;
 
 
@@ -30,7 +30,6 @@ public abstract class Unit : MonoBehaviour
 
         transform.SetParent(tile.transform);
         transform.localPosition = new Vector3(0, 0.75f, 0);
-        ChildUpdate();
 
     }
 
@@ -42,7 +41,6 @@ public abstract class Unit : MonoBehaviour
     //TODO: create this when tiles are implemented
     //public virtual int ReturnMovementCost()
 
-    public abstract void ChildUpdate();
 
     public void ActivateUnit()
     {

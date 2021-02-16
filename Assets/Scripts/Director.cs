@@ -9,21 +9,13 @@ public class Director : MonoBehaviour
         TURN_START, CURSOR_ACTION, TURN_END, GAME_END
     }
 
-    //TODO: Add a Player Class and handle turns depending on that class
-    private enum Turn
-    {
-        PLAYER, ENEMY
-    }
-
     [SerializeField] Cursor cursor;
     [SerializeField] private int maxTurnCount = 20;
     private int currentTurnCount = 1;
 
     private GameState gameState = GameState.TURN_START;
-    private Turn turn = Turn.PLAYER;
-
-    [SerializeField] private Unit[] AllyUnits;
-    [SerializeField] private Unit[] EnemyUnits;
+    [SerializeField] List<Faction> players;
+    private int playerTurnIndicator = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,19 +33,18 @@ public class Director : MonoBehaviour
 
         if (gameState == GameState.TURN_START)
         {
-            Unit[] unitToBeChanged = (turn == Turn.PLAYER) ? AllyUnits : EnemyUnits;
-            foreach (Unit u in unitToBeChanged)
-            {
-                u.ActivateUnit();
-            }
+
+            players[playerTurnIndicator].ActivateFactionUnits();
+
             gameState = GameState.CURSOR_ACTION;
-            if (turn == Turn.PLAYER)
+            if (playerTurnIndicator == 0)
             {
                 cursor.enabled = true;
             }
-            if (turn == Turn.ENEMY)
+            if (playerTurnIndicator == 1)
             {
                 print("Enemy Turn");
+                gameState = GameState.TURN_END;
             }
         }
 
@@ -64,12 +55,8 @@ public class Director : MonoBehaviour
 
         if (gameState == GameState.TURN_END)
         {
-            if (turn == Turn.PLAYER)
-            {
-                cursor.enabled = false;
-            }
-
-            turn = (turn == Turn.PLAYER) ? Turn.ENEMY : Turn.PLAYER;
+            cursor.enabled = false;
+            playerTurnIndicator = (playerTurnIndicator + 1) % players.Count;
             gameState = GameState.TURN_START;
 
         }
