@@ -2,9 +2,14 @@
 
 public abstract class CursorState
 {
-    private Cursor cursor;
-    private CursorStateMachine csm;
-
+    protected Cursor cursor;
+    protected CursorStateMachine csm;
+    
+    protected CursorState(Cursor cursor, CursorStateMachine csm)
+    {
+        this.cursor = cursor;
+        this.csm = csm;
+    }
     public abstract void Start();
 
     public abstract void Update();
