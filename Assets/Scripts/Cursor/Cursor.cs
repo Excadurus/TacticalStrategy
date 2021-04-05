@@ -45,25 +45,25 @@ public class Cursor : MonoBehaviour
 
         int gameboardColLen = gameboard.rows[0].tiles.Length;
         int gameboardRowLen = gameboard.rows.Length;
-        if (Input.GetKey(KeyCode.RightArrow) && tile.col < gameboardColLen - 1)
+        if (Input.GetKeyUp(KeyCode.RightArrow) && tile.col < gameboardColLen - 1)
         {
             int row = this.tile.row;
             int col = this.tile.col;
             this.tile = gameboard.rows[row].tiles[col + 1];
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && tile.col > 0)
+        else if (Input.GetKeyUp(KeyCode.LeftArrow) && tile.col > 0)
         {
             int row = this.tile.row;
             int col = this.tile.col;
             this.tile = gameboard.rows[row].tiles[col - 1];
         }
-        else if (Input.GetKey(KeyCode.UpArrow) && tile.row < gameboardRowLen - 1)
+        else if (Input.GetKeyUp(KeyCode.UpArrow) && tile.row < gameboardRowLen - 1)
         {
             int row = this.tile.row;
             int col = this.tile.col;
             this.tile = gameboard.rows[row + 1].tiles[col];
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && tile.row > 0)
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && tile.row > 0)
         {
             int row = this.tile.row;
             int col = this.tile.col;

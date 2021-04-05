@@ -22,8 +22,8 @@ public class CursorStateMachine
     public void changeState(CursorState newState)
     {
         currentState.Exit();
-        currentState = AIActionState;
-        AIActionState.Start();
+        currentState = newState;
+        newState.Start();
     }
 
 }
