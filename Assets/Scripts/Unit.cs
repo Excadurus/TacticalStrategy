@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, ICursorUser
 {
     protected enum ActionState
     {
@@ -13,11 +13,13 @@ public class Unit : MonoBehaviour
     [SerializeField] int movementRange = 5;
     protected ActionState actionState = ActionState.ENEMY_TURN;
 
+    public bool Enable {get; set;}
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Enable = true;
     }
 
     // Update is called once per frame
@@ -70,5 +72,35 @@ public class Unit : MonoBehaviour
     public bool CanAttack()
     {
         return actionState == ActionState.CAN_ATTACK;
+    }
+
+    public void Interact(Tile t)
+    {
+        if (Input.GetKeyDown(KeyCode.D) && IsActive() && t.unit != null)
+        {
+            Attack(t.unit);
+            FinishTurn();
+        }
+
+        if (Input.GetKeyUp(KeyCode.C) && CanMove())
+        {
+            tile = t;
+            FinishMove();
+        }
+    }
+
+    public bool Yields()
+    {
+        if (Input.GetKeyDown(KeyCode.Z) || !IsActive())
+        {
+            GetComponent<Light>().enabled = false;
+            return true;
+        }
+        return false;
+    }
+
+    public ICursorUser ChangeUser(Tile t)
+    {
+        return this;
     }
 }

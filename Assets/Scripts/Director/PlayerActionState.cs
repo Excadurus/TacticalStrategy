@@ -11,6 +11,7 @@ public class PlayerActionState : DirectorState
     {
         faction.ActivateFactionUnits();
         director.cursor.enabled = true;
+        director.Enable = true;
     }
 
     public override void FixedUpdate()
@@ -34,6 +35,7 @@ public class PlayerActionState : DirectorState
     public override void Exit()
     {
         director.cursor.enabled = false;
+        director.Enable = false;
         director.IncTurn();
     }
 }
