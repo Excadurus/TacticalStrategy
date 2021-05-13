@@ -1,25 +1,19 @@
 ﻿using UnityEngine;
 
-public class Unit : MonoBehaviour, ICursorUser
+public class Unit : MonoBehaviour
 {
-    protected enum ActionState
-    {
-        CAN_MOVE, CAN_ATTACK, TURN_ENDED, ENEMY_TURN
-    }
+
 
     [SerializeField] public Tile tile;
     [SerializeField] int hp = 20;
     [SerializeField] int dmg = 10;
     [SerializeField] int movementRange = 5;
-    protected ActionState actionState = ActionState.ENEMY_TURN;
-
-    public bool Enable {get; set;}
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Enable = true;
+
     }
 
     // Update is called once per frame
@@ -44,63 +38,9 @@ public class Unit : MonoBehaviour, ICursorUser
     //public virtual int ReturnMovementCost()
 
 
-    public void ActivateUnit()
-    {
-        actionState = ActionState.CAN_MOVE;
-    }
-
-    public void FinishMove()
-    {
-        actionState = ActionState.CAN_ATTACK;
-    }
-
-    public void FinishTurn()
-    {
-        actionState = ActionState.TURN_ENDED;
-    }
-
     public bool IsActive()
     {
-        return actionState == ActionState.CAN_ATTACK || actionState == ActionState.CAN_MOVE;
+        return true;
     }
-
-    public bool CanMove()
-    {
-        return actionState == ActionState.CAN_MOVE;
-    }
-
-    public bool CanAttack()
-    {
-        return actionState == ActionState.CAN_ATTACK;
-    }
-
-    public void Interact(Tile t)
-    {
-        if (Input.GetKeyDown(KeyCode.D) && IsActive() && t.unit != null)
-        {
-            Attack(t.unit);
-            FinishTurn();
-        }
-
-        if (Input.GetKeyUp(KeyCode.C) && CanMove())
-        {
-            tile = t;
-            FinishMove();
-        }
-    }
-
-    public bool Yields()
-    {
-        if (Input.GetKeyDown(KeyCode.Z) || !IsActive())
-        {
-            GetComponent<Light>().enabled = false;
-            return true;
-        }
-        return false;
-    }
-
-    public ICursorUser ChangeUser(Tile t)
-    {
-        return this;
-    }
+   
 }

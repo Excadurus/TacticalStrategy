@@ -6,6 +6,9 @@ public class DirectorStateMachine
     //TODO: Change to a list to cover multiple factions
     public DirectorState EndState { get; set; }
 
+    public DirectorState TurnStartState { get; set; }
+
+
 
     //TODO: Change to a list to cover multiple Factions
 
@@ -16,6 +19,7 @@ public class DirectorStateMachine
         PlayerActionState = new PlayerActionState(director, this, playerFaction);
         AIState = new AIState(director, this, enemyFaction);
         EndState = new EndState(director, this, null);
+        TurnStartState = new TurnStartState(director, this, null);
     }
     public void Initialize()
     {
