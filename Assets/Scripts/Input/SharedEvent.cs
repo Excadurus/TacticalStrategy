@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+[CreateAssetMenu]
 
-public class SharedEvent : MonoBehaviour
+public class SharedEvent : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    private event Action Event;
+
+    public void Invoke()
     {
-        
+        Event?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddEvent(Action a)
     {
-        
+        Event += a;
     }
+
+    public void RemoveEvent(Action a)
+    {
+        Event -= a;
+    }
+
 }

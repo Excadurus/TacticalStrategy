@@ -4,15 +4,22 @@ public abstract class UnitActions : MonoBehaviour
 {
     public bool isAvailable;
 
+    [SerializeField] SharedEvent ExecutionInteract;
+    [SerializeField] SharedEvent ExecutionMoveUpEvent;
+    [SerializeField] SharedEvent ExecutionMoveDownEvent;
+    [SerializeField] SharedEvent ExecutionMoveLeftEvent;
+    [SerializeField] SharedEvent ExecutionMoveRightEvent;
+    [SerializeField] SharedEvent ExecutionCancel;
+
     public void Act()
     {
         Initialize();
-        InputWrapper.ExecutionInteract += Interact;
-        InputWrapper.ExecutionMoveUpEvent += MoveUp;
-        InputWrapper.ExecutionMoveDownEvent += MoveDown;
-        InputWrapper.ExecutionMoveLeftEvent += MoveLeft;
-        InputWrapper.ExecutionMoveRightEvent += MoveRight;
-        InputWrapper.ExecutionCancel += Cancel;
+        ExecutionInteract.AddEvent(Interact);
+        ExecutionMoveUpEvent.AddEvent(MoveUp);
+        ExecutionMoveDownEvent.AddEvent(MoveDown);
+        ExecutionMoveLeftEvent.AddEvent(MoveLeft);
+        ExecutionMoveRightEvent.AddEvent(MoveRight);
+        ExecutionCancel.AddEvent(Cancel);
     }
 
     protected abstract void Initialize();
@@ -26,12 +33,12 @@ public abstract class UnitActions : MonoBehaviour
     private void Cancel()
     {
         Destroy();
-        InputWrapper.ExecutionInteract -= Interact;
-        InputWrapper.ExecutionMoveUpEvent -= MoveUp;
-        InputWrapper.ExecutionMoveDownEvent -= MoveDown;
-        InputWrapper.ExecutionMoveLeftEvent -= MoveLeft;
-        InputWrapper.ExecutionMoveRightEvent -= MoveRight;
-        InputWrapper.ExecutionCancel -= Cancel;
+        ExecutionInteract.RemoveEvent(Interact);
+        ExecutionMoveUpEvent.RemoveEvent(MoveUp);
+        ExecutionMoveDownEvent.RemoveEvent(MoveDown);
+        ExecutionMoveLeftEvent.RemoveEvent(MoveLeft);
+        ExecutionMoveRightEvent.RemoveEvent(MoveRight);
+        ExecutionCancel.RemoveEvent(Cancel);
     }
 
 }

@@ -23,12 +23,12 @@ public class InputWrapper : MonoBehaviour
 
     #region "UnitActionExecution Events(Fields)"
     // TODO: Static Events should be changed to non Statics Later
-    public static event Action ExecutionMoveUpEvent;
-    public static event Action ExecutionMoveDownEvent;
-    public static event Action ExecutionMoveLeftEvent;
-    public static event Action ExecutionMoveRightEvent;
-    public static event Action ExecutionInteract;
-    public static event Action ExecutionCancel;
+    [SerializeField] private SharedEvent ExecutionMoveUpEvent;
+    [SerializeField] private SharedEvent ExecutionMoveDownEvent;
+    [SerializeField] private SharedEvent ExecutionMoveLeftEvent;
+    [SerializeField] private SharedEvent ExecutionMoveRightEvent;
+    [SerializeField] private SharedEvent ExecutionInteract;
+    [SerializeField] private SharedEvent ExecutionCancel;
     #endregion
 
     #region "AITurnActions Events(Fields)"
