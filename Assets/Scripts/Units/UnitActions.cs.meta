@@ -3,7 +3,14 @@ guid: 42c2c9806a12f8d44b12c597601ba575
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee,
+      type: 2}
+  - ExecutionMoveUpEvent: {instanceID: 0}
+  - ExecutionMoveDownEvent: {instanceID: 0}
+  - ExecutionMoveLeftEvent: {instanceID: 0}
+  - ExecutionMoveRightEvent: {instanceID: 0}
+  - ExecutionCancel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

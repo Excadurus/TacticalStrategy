@@ -1,23 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu]
 public class MoveAction : UnitActions
 {
-    [SerializeField]private Path[] paths;
+    private Path[] paths;
     private Cursor c;
-    [SerializeField] Unit u;
 
-
-    void Awake()
-    {
-        
-    }
-
-    void Start()
+    void OnEnable()
     {
         c = GameObject.Find("Cursor").GetComponent<Cursor>();
-        Act();
     }
 
 
@@ -42,7 +34,7 @@ public class MoveAction : UnitActions
     {
         if (c.getTile().CanMoveHere())
         {
-            u.tile = c.getTile();
+            unit.tile = c.getTile();
             Destroy();
         }
     }

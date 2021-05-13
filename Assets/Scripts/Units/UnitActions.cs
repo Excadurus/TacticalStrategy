@@ -1,18 +1,22 @@
 using UnityEngine;
 
-public abstract class UnitActions : MonoBehaviour
+
+public abstract class UnitActions : ScriptableObject
 {
-    public bool isAvailable;
+    [HideInInspector]public bool isAvailable;
+    protected Unit unit;
 
-    [SerializeField] SharedEvent ExecutionInteract;
-    [SerializeField] SharedEvent ExecutionMoveUpEvent;
-    [SerializeField] SharedEvent ExecutionMoveDownEvent;
-    [SerializeField] SharedEvent ExecutionMoveLeftEvent;
-    [SerializeField] SharedEvent ExecutionMoveRightEvent;
-    [SerializeField] SharedEvent ExecutionCancel;
 
-    public void Act()
+    [SerializeField] protected SharedEvent ExecutionInteract;
+    [SerializeField] protected SharedEvent ExecutionMoveUpEvent;
+    [SerializeField] protected SharedEvent ExecutionMoveDownEvent;
+    [SerializeField] protected SharedEvent ExecutionMoveLeftEvent;
+    [SerializeField] protected SharedEvent ExecutionMoveRightEvent;
+    [SerializeField] protected SharedEvent ExecutionCancel;
+
+    public void Act(Unit u)
     {
+        unit = u;
         Initialize();
         ExecutionInteract.AddEvent(Interact);
         ExecutionMoveUpEvent.AddEvent(MoveUp);
