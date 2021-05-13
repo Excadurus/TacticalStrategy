@@ -137,7 +137,7 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""ActionSelection"",
+            ""name"": ""UnitActionSelection"",
             ""id"": ""f3b0e704-534d-4691-8161-3d950062cbd0"",
             ""actions"": [
                 {
@@ -164,13 +164,53 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""ActionTargetSelection"",
+            ""name"": ""UnitActionExecution"",
             ""id"": ""aaae626a-f4ea-4523-95c8-bd24a98d969c"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""53fa64e8-80bf-4c50-bfbd-8bccb253afa3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""12c8937d-50be-4393-946c-e69f3fbc002b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""786f778b-0e84-46ff-a32c-315365fdd14e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce51c721-4d2f-4703-bba8-0c166df395be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""4725956b-1815-41d1-8d8b-c5fa58703c11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b18cdfd-b9a7-4424-8f73-30db6ec4fa68"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -180,11 +220,66 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5df8c853-2499-475c-bb8b-f167fcc28b1c"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9ef3873-1409-4d02-aa1f-3bb0aef17ff3"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbd053ed-4ddc-4406-a429-de1c68e3e1c8"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MoveUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b0b8899-dfa0-4d07-906c-ac680aa5c105"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MoveDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e0107ba-f924-4035-a9ad-91c3f18a5eeb"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""020bc9e9-ab41-436f-9891-ba16c0f43834"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MoveRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -289,12 +384,17 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         m_FreeRoam_MoveRight = m_FreeRoam.FindAction("MoveRight", throwIfNotFound: true);
         m_FreeRoam_Interact = m_FreeRoam.FindAction("Interact", throwIfNotFound: true);
         m_FreeRoam_EndTurn = m_FreeRoam.FindAction("EndTurn", throwIfNotFound: true);
-        // ActionSelection
-        m_ActionSelection = asset.FindActionMap("ActionSelection", throwIfNotFound: true);
-        m_ActionSelection_MoveUp = m_ActionSelection.FindAction("MoveUp", throwIfNotFound: true);
-        // ActionTargetSelection
-        m_ActionTargetSelection = asset.FindActionMap("ActionTargetSelection", throwIfNotFound: true);
-        m_ActionTargetSelection_Newaction = m_ActionTargetSelection.FindAction("New action", throwIfNotFound: true);
+        // UnitActionSelection
+        m_UnitActionSelection = asset.FindActionMap("UnitActionSelection", throwIfNotFound: true);
+        m_UnitActionSelection_MoveUp = m_UnitActionSelection.FindAction("MoveUp", throwIfNotFound: true);
+        // UnitActionExecution
+        m_UnitActionExecution = asset.FindActionMap("UnitActionExecution", throwIfNotFound: true);
+        m_UnitActionExecution_Interact = m_UnitActionExecution.FindAction("Interact", throwIfNotFound: true);
+        m_UnitActionExecution_Cancel = m_UnitActionExecution.FindAction("Cancel", throwIfNotFound: true);
+        m_UnitActionExecution_MoveUp = m_UnitActionExecution.FindAction("MoveUp", throwIfNotFound: true);
+        m_UnitActionExecution_MoveDown = m_UnitActionExecution.FindAction("MoveDown", throwIfNotFound: true);
+        m_UnitActionExecution_MoveLeft = m_UnitActionExecution.FindAction("MoveLeft", throwIfNotFound: true);
+        m_UnitActionExecution_MoveRight = m_UnitActionExecution.FindAction("MoveRight", throwIfNotFound: true);
         // AITurnActions
         m_AITurnActions = asset.FindActionMap("AITurnActions", throwIfNotFound: true);
         m_AITurnActions_EndAITurn = m_AITurnActions.FindAction("EndAITurn", throwIfNotFound: true);
@@ -417,29 +517,29 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
     }
     public FreeRoamActions @FreeRoam => new FreeRoamActions(this);
 
-    // ActionSelection
-    private readonly InputActionMap m_ActionSelection;
-    private IActionSelectionActions m_ActionSelectionActionsCallbackInterface;
-    private readonly InputAction m_ActionSelection_MoveUp;
-    public struct ActionSelectionActions
+    // UnitActionSelection
+    private readonly InputActionMap m_UnitActionSelection;
+    private IUnitActionSelectionActions m_UnitActionSelectionActionsCallbackInterface;
+    private readonly InputAction m_UnitActionSelection_MoveUp;
+    public struct UnitActionSelectionActions
     {
         private @TacticalStrategy m_Wrapper;
-        public ActionSelectionActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveUp => m_Wrapper.m_ActionSelection_MoveUp;
-        public InputActionMap Get() { return m_Wrapper.m_ActionSelection; }
+        public UnitActionSelectionActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveUp => m_Wrapper.m_UnitActionSelection_MoveUp;
+        public InputActionMap Get() { return m_Wrapper.m_UnitActionSelection; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ActionSelectionActions set) { return set.Get(); }
-        public void SetCallbacks(IActionSelectionActions instance)
+        public static implicit operator InputActionMap(UnitActionSelectionActions set) { return set.Get(); }
+        public void SetCallbacks(IUnitActionSelectionActions instance)
         {
-            if (m_Wrapper.m_ActionSelectionActionsCallbackInterface != null)
+            if (m_Wrapper.m_UnitActionSelectionActionsCallbackInterface != null)
             {
-                @MoveUp.started -= m_Wrapper.m_ActionSelectionActionsCallbackInterface.OnMoveUp;
-                @MoveUp.performed -= m_Wrapper.m_ActionSelectionActionsCallbackInterface.OnMoveUp;
-                @MoveUp.canceled -= m_Wrapper.m_ActionSelectionActionsCallbackInterface.OnMoveUp;
+                @MoveUp.started -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
+                @MoveUp.performed -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
+                @MoveUp.canceled -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
             }
-            m_Wrapper.m_ActionSelectionActionsCallbackInterface = instance;
+            m_Wrapper.m_UnitActionSelectionActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @MoveUp.started += instance.OnMoveUp;
@@ -448,40 +548,80 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
             }
         }
     }
-    public ActionSelectionActions @ActionSelection => new ActionSelectionActions(this);
+    public UnitActionSelectionActions @UnitActionSelection => new UnitActionSelectionActions(this);
 
-    // ActionTargetSelection
-    private readonly InputActionMap m_ActionTargetSelection;
-    private IActionTargetSelectionActions m_ActionTargetSelectionActionsCallbackInterface;
-    private readonly InputAction m_ActionTargetSelection_Newaction;
-    public struct ActionTargetSelectionActions
+    // UnitActionExecution
+    private readonly InputActionMap m_UnitActionExecution;
+    private IUnitActionExecutionActions m_UnitActionExecutionActionsCallbackInterface;
+    private readonly InputAction m_UnitActionExecution_Interact;
+    private readonly InputAction m_UnitActionExecution_Cancel;
+    private readonly InputAction m_UnitActionExecution_MoveUp;
+    private readonly InputAction m_UnitActionExecution_MoveDown;
+    private readonly InputAction m_UnitActionExecution_MoveLeft;
+    private readonly InputAction m_UnitActionExecution_MoveRight;
+    public struct UnitActionExecutionActions
     {
         private @TacticalStrategy m_Wrapper;
-        public ActionTargetSelectionActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_ActionTargetSelection_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_ActionTargetSelection; }
+        public UnitActionExecutionActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_UnitActionExecution_Interact;
+        public InputAction @Cancel => m_Wrapper.m_UnitActionExecution_Cancel;
+        public InputAction @MoveUp => m_Wrapper.m_UnitActionExecution_MoveUp;
+        public InputAction @MoveDown => m_Wrapper.m_UnitActionExecution_MoveDown;
+        public InputAction @MoveLeft => m_Wrapper.m_UnitActionExecution_MoveLeft;
+        public InputAction @MoveRight => m_Wrapper.m_UnitActionExecution_MoveRight;
+        public InputActionMap Get() { return m_Wrapper.m_UnitActionExecution; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ActionTargetSelectionActions set) { return set.Get(); }
-        public void SetCallbacks(IActionTargetSelectionActions instance)
+        public static implicit operator InputActionMap(UnitActionExecutionActions set) { return set.Get(); }
+        public void SetCallbacks(IUnitActionExecutionActions instance)
         {
-            if (m_Wrapper.m_ActionTargetSelectionActionsCallbackInterface != null)
+            if (m_Wrapper.m_UnitActionExecutionActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_ActionTargetSelectionActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_ActionTargetSelectionActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_ActionTargetSelectionActionsCallbackInterface.OnNewaction;
+                @Interact.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnInteract;
+                @Cancel.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnCancel;
+                @MoveUp.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveUp;
+                @MoveUp.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveUp;
+                @MoveUp.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveUp;
+                @MoveDown.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveDown;
+                @MoveDown.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveDown;
+                @MoveDown.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveDown;
+                @MoveLeft.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveLeft;
+                @MoveRight.started -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveRight;
+                @MoveRight.performed -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveRight;
+                @MoveRight.canceled -= m_Wrapper.m_UnitActionExecutionActionsCallbackInterface.OnMoveRight;
             }
-            m_Wrapper.m_ActionTargetSelectionActionsCallbackInterface = instance;
+            m_Wrapper.m_UnitActionExecutionActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
+                @MoveUp.started += instance.OnMoveUp;
+                @MoveUp.performed += instance.OnMoveUp;
+                @MoveUp.canceled += instance.OnMoveUp;
+                @MoveDown.started += instance.OnMoveDown;
+                @MoveDown.performed += instance.OnMoveDown;
+                @MoveDown.canceled += instance.OnMoveDown;
+                @MoveLeft.started += instance.OnMoveLeft;
+                @MoveLeft.performed += instance.OnMoveLeft;
+                @MoveLeft.canceled += instance.OnMoveLeft;
+                @MoveRight.started += instance.OnMoveRight;
+                @MoveRight.performed += instance.OnMoveRight;
+                @MoveRight.canceled += instance.OnMoveRight;
             }
         }
     }
-    public ActionTargetSelectionActions @ActionTargetSelection => new ActionTargetSelectionActions(this);
+    public UnitActionExecutionActions @UnitActionExecution => new UnitActionExecutionActions(this);
 
     // AITurnActions
     private readonly InputActionMap m_AITurnActions;
@@ -569,13 +709,18 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnEndTurn(InputAction.CallbackContext context);
     }
-    public interface IActionSelectionActions
+    public interface IUnitActionSelectionActions
     {
         void OnMoveUp(InputAction.CallbackContext context);
     }
-    public interface IActionTargetSelectionActions
+    public interface IUnitActionExecutionActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
+        void OnMoveUp(InputAction.CallbackContext context);
+        void OnMoveDown(InputAction.CallbackContext context);
+        void OnMoveLeft(InputAction.CallbackContext context);
+        void OnMoveRight(InputAction.CallbackContext context);
     }
     public interface IAITurnActionsActions
     {

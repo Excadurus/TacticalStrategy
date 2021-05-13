@@ -5,7 +5,7 @@ public class PlayerActionState : DirectorState
 
     public PlayerActionState(Director director, DirectorStateMachine dsm, Faction faction) : base(director, dsm, faction)
     {
-        InputWrapper.EndPlayerTurn += EndTurn;
+        InputWrapper.FreeRoamEndPlayerTurn += EndTurn;
     }
 
     public override void Start()

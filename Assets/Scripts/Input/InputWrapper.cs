@@ -7,18 +7,34 @@ using UnityEngine.InputSystem;
 
 public class InputWrapper : MonoBehaviour
 {
-    TacticalStrategy input;
-    PlayerInput control;
+    //Input System
+    private TacticalStrategy input;
+    private PlayerInput control;
 
-    [SerializeField] UnityEvent MoveUpEvent;
-    [SerializeField] UnityEvent MoveDownEvent;
-    [SerializeField] UnityEvent MoveLeftEvent;
-    [SerializeField] UnityEvent MoveRightEvent;
+    #region "FreeRoam Input Events(Fields)"
+    //TODO: Static Events should be changed to non Statics Later
+    [SerializeField] UnityEvent FreeRoamMoveUpEvent;
+    [SerializeField] UnityEvent FreeRoamMoveDownEvent;
+    [SerializeField] UnityEvent FreeRoamMoveLeftEvent;
+    [SerializeField] UnityEvent FreeRoamMoveRightEvent;
+    public static event Action FreeRoamInteract;
+    public static event Action FreeRoamEndPlayerTurn;
+    #endregion
 
-    [SerializeField] public static event Action Interact;
-    [SerializeField] public static event Action EndPlayerTurn;
+    #region "UnitActionExecution Events(Fields)"
+    // TODO: Static Events should be changed to non Statics Later
+    public static event Action ExecutionMoveUpEvent;
+    public static event Action ExecutionMoveDownEvent;
+    public static event Action ExecutionMoveLeftEvent;
+    public static event Action ExecutionMoveRightEvent;
+    public static event Action ExecutionInteract;
+    public static event Action ExecutionCancel;
+    #endregion
+
+    #region "AITurnActions Events(Fields)"
+    //TODO: Static Events should be changed to non Statics Later
     [SerializeField] public static event Action EndAITurn;
-
+    #endregion
 
 
 
@@ -28,35 +44,46 @@ public class InputWrapper : MonoBehaviour
         control = GetComponent<PlayerInput>();
         
     }
-    public void MoveUpWrapper(InputAction.CallbackContext context)
+
+
+    #region "FreeRoam Methods"
+    public void FreeRoamMoveUpWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            MoveUpEvent.Invoke();
+            FreeRoamMoveUpEvent.Invoke();
         }
     }
 
-    public void MoveDownWrapper(InputAction.CallbackContext context)
+    public void FreeRoamMoveDownWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            MoveDownEvent.Invoke();
+            FreeRoamMoveDownEvent.Invoke();
         }
     }
 
-    public void MoveLeftWrapper(InputAction.CallbackContext context)
+    public void FreeRoamMoveLeftWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            MoveLeftEvent.Invoke();
+            FreeRoamMoveLeftEvent.Invoke();
         }
     }
 
-    public void MoveRightWrapper(InputAction.CallbackContext context)
+    public void FreeRoamMoveRightWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            MoveRightEvent.Invoke();
+            FreeRoamMoveRightEvent.Invoke();
+        }
+    }
+
+    public void FreeRoamInteractWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            FreeRoamInteract.Invoke();
         }
     }
 
@@ -65,7 +92,7 @@ public class InputWrapper : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            EndPlayerTurn.Invoke();
+            FreeRoamEndPlayerTurn.Invoke();
         }
         if (context.phase == InputActionPhase.Canceled)
         {
@@ -73,6 +100,60 @@ public class InputWrapper : MonoBehaviour
         }
 
     }
+    #endregion
+
+
+
+    #region "Execution Methods"
+    public void ExecutionMoveUpWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionMoveUpEvent.Invoke();
+        }
+    }
+
+    public void ExecutionMoveDownWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionMoveDownEvent.Invoke();
+        }
+    }
+
+    public void ExecutionMoveLeftWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionMoveLeftEvent.Invoke();
+        }
+    }
+
+    public void ExecutionMoveRightWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionMoveRightEvent.Invoke();
+        }
+    }
+
+    public void ExecutionInteractWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionInteract.Invoke();
+        }
+    }
+
+
+    public void ExecutionCancelWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionCancel.Invoke();
+        }
+    }
+    #endregion
 
     public void EndAITurnWrapper(InputAction.CallbackContext context)
     {
@@ -85,8 +166,5 @@ public class InputWrapper : MonoBehaviour
             control.SwitchCurrentActionMap("FreeRoam");
         }
     }
-
-
-
 
 }
