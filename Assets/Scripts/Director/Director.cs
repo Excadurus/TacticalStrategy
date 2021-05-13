@@ -6,6 +6,7 @@ using UnityEngine;
 public class Director : MonoBehaviour
 {
     [SerializeField] public Cursor cursor;
+    [SerializeField] public InputWrapper inputWrapper;
 
     [SerializeField] private int maxTurnCount = 20;
     private int currentTurnCount = 0;

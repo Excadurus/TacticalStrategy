@@ -57,6 +57,14 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""EndTurn"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb5c31d8-7df7-4132-9fa8-03209f168105"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -114,6 +122,17 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8bb725c-3ef8-4d12-bcd1-b2af3d635802"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""EndTurn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -166,6 +185,33 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""AITurnActions"",
+            ""id"": ""e764dd5c-7a3c-4b64-8a76-7672f8ae14de"",
+            ""actions"": [
+                {
+                    ""name"": ""EndAITurn"",
+                    ""type"": ""Button"",
+                    ""id"": ""880f11ba-304d-4c06-a817-1d190424e36f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""bd1d87e5-4862-48cc-891f-a3518f9ecf97"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""EndAITurn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -242,12 +288,16 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         m_FreeRoam_MoveLeft = m_FreeRoam.FindAction("MoveLeft", throwIfNotFound: true);
         m_FreeRoam_MoveRight = m_FreeRoam.FindAction("MoveRight", throwIfNotFound: true);
         m_FreeRoam_Interact = m_FreeRoam.FindAction("Interact", throwIfNotFound: true);
+        m_FreeRoam_EndTurn = m_FreeRoam.FindAction("EndTurn", throwIfNotFound: true);
         // ActionSelection
         m_ActionSelection = asset.FindActionMap("ActionSelection", throwIfNotFound: true);
         m_ActionSelection_MoveUp = m_ActionSelection.FindAction("MoveUp", throwIfNotFound: true);
         // ActionTargetSelection
         m_ActionTargetSelection = asset.FindActionMap("ActionTargetSelection", throwIfNotFound: true);
         m_ActionTargetSelection_Newaction = m_ActionTargetSelection.FindAction("New action", throwIfNotFound: true);
+        // AITurnActions
+        m_AITurnActions = asset.FindActionMap("AITurnActions", throwIfNotFound: true);
+        m_AITurnActions_EndAITurn = m_AITurnActions.FindAction("EndAITurn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -302,6 +352,7 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
     private readonly InputAction m_FreeRoam_MoveLeft;
     private readonly InputAction m_FreeRoam_MoveRight;
     private readonly InputAction m_FreeRoam_Interact;
+    private readonly InputAction m_FreeRoam_EndTurn;
     public struct FreeRoamActions
     {
         private @TacticalStrategy m_Wrapper;
@@ -311,6 +362,7 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         public InputAction @MoveLeft => m_Wrapper.m_FreeRoam_MoveLeft;
         public InputAction @MoveRight => m_Wrapper.m_FreeRoam_MoveRight;
         public InputAction @Interact => m_Wrapper.m_FreeRoam_Interact;
+        public InputAction @EndTurn => m_Wrapper.m_FreeRoam_EndTurn;
         public InputActionMap Get() { return m_Wrapper.m_FreeRoam; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -335,6 +387,9 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnInteract;
+                @EndTurn.started -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnEndTurn;
+                @EndTurn.performed -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnEndTurn;
+                @EndTurn.canceled -= m_Wrapper.m_FreeRoamActionsCallbackInterface.OnEndTurn;
             }
             m_Wrapper.m_FreeRoamActionsCallbackInterface = instance;
             if (instance != null)
@@ -354,6 +409,9 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @EndTurn.started += instance.OnEndTurn;
+                @EndTurn.performed += instance.OnEndTurn;
+                @EndTurn.canceled += instance.OnEndTurn;
             }
         }
     }
@@ -424,6 +482,39 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         }
     }
     public ActionTargetSelectionActions @ActionTargetSelection => new ActionTargetSelectionActions(this);
+
+    // AITurnActions
+    private readonly InputActionMap m_AITurnActions;
+    private IAITurnActionsActions m_AITurnActionsActionsCallbackInterface;
+    private readonly InputAction m_AITurnActions_EndAITurn;
+    public struct AITurnActionsActions
+    {
+        private @TacticalStrategy m_Wrapper;
+        public AITurnActionsActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EndAITurn => m_Wrapper.m_AITurnActions_EndAITurn;
+        public InputActionMap Get() { return m_Wrapper.m_AITurnActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AITurnActionsActions set) { return set.Get(); }
+        public void SetCallbacks(IAITurnActionsActions instance)
+        {
+            if (m_Wrapper.m_AITurnActionsActionsCallbackInterface != null)
+            {
+                @EndAITurn.started -= m_Wrapper.m_AITurnActionsActionsCallbackInterface.OnEndAITurn;
+                @EndAITurn.performed -= m_Wrapper.m_AITurnActionsActionsCallbackInterface.OnEndAITurn;
+                @EndAITurn.canceled -= m_Wrapper.m_AITurnActionsActionsCallbackInterface.OnEndAITurn;
+            }
+            m_Wrapper.m_AITurnActionsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @EndAITurn.started += instance.OnEndAITurn;
+                @EndAITurn.performed += instance.OnEndAITurn;
+                @EndAITurn.canceled += instance.OnEndAITurn;
+            }
+        }
+    }
+    public AITurnActionsActions @AITurnActions => new AITurnActionsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -476,6 +567,7 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         void OnMoveLeft(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnEndTurn(InputAction.CallbackContext context);
     }
     public interface IActionSelectionActions
     {
@@ -484,5 +576,9 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
     public interface IActionTargetSelectionActions
     {
         void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IAITurnActionsActions
+    {
+        void OnEndAITurn(InputAction.CallbackContext context);
     }
 }

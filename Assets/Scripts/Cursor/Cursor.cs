@@ -46,7 +46,6 @@ public class Cursor : MonoBehaviour
         int col = tile.col;
         if (row == GetBoardLength()-1) return;
         tile = gameboard.rows[row + 1].tiles[col];
-        Debug.Log("pressed");
     }
 
     public void MoveDown()

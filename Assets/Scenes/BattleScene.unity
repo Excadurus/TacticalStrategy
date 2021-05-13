@@ -440,7 +440,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1809190826}
         m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
         m_MethodName: MoveUpWrapper
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -456,7 +456,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1809190826}
         m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
         m_MethodName: MoveDownWrapper
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -472,7 +472,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1809190826}
         m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
         m_MethodName: MoveLeftWrapper
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -488,7 +488,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1809190826}
         m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
         m_MethodName: MoveRightWrapper
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -503,9 +503,49 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 189999e5-e162-4f00-91b2-6a5aea2dbc12
     m_ActionName: Cursor2/MoveUp
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53fa64e8-80bf-4c50-bfbd-8bccb253afa3
+    m_ActionName: ActionTargetSelection/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3adb6575-132e-4ed3-b4be-62e49f1c1119
+    m_ActionName: FreeRoam/Interact[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809190826}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: EndPlayerTurnWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb5c31d8-7df7-4132-9fa8-03209f168105
+    m_ActionName: FreeRoam/EndTurn[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809190826}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: EndAITurnWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 880f11ba-304d-4c06-a817-1d190424e36f
+    m_ActionName: AITurnActions/EndAITurn[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Cursor
+  m_DefaultActionMap: FreeRoam
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1809190826
@@ -949,6 +989,11 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1010207399}
+    - target: {fileID: 8881437741463096848, guid: 4ac842605e8798f4a9c686384ab7d7d3,
+        type: 3}
+      propertyPath: inputWrapper
+      value: 
+      objectReference: {fileID: 1809190826}
     - target: {fileID: 8881437741463096848, guid: 4ac842605e8798f4a9c686384ab7d7d3,
         type: 3}
       propertyPath: players.Array.size

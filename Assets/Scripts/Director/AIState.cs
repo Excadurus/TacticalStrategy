@@ -5,6 +5,7 @@ public class AIState : DirectorState
 {
     public AIState(Director director, DirectorStateMachine dsm, Faction faction) : base(director, dsm, faction)
     {
+        InputWrapper.EndAITurn += FinishedTurn;
     }
 
     public override void Exit()
@@ -17,6 +18,7 @@ public class AIState : DirectorState
 
     public override void Start()
     {
+        Debug.Log("Enemy Turn!");
 
     }
 
@@ -27,8 +29,12 @@ public class AIState : DirectorState
             dsm.changeState(dsm.EndState);
             return;
         }
-        Debug.Log("Enemy Turn!");
-        dsm.changeState(dsm.PlayerActionState);
         return;
+    }
+
+    public void FinishedTurn()
+    {
+        Debug.Log("AI has Finished Turn");
+        dsm.changeState(dsm.PlayerActionState);
     }
 }
