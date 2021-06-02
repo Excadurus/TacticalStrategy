@@ -56,7 +56,7 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
                     ""id"": ""3adb6575-132e-4ed3-b4be-62e49f1c1119"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""EndTurn"",
@@ -141,23 +141,42 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
             ""id"": ""f3b0e704-534d-4691-8161-3d950062cbd0"",
             ""actions"": [
                 {
-                    ""name"": ""MoveUp"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""189999e5-e162-4f00-91b2-6a5aea2dbc12"",
+                    ""id"": ""949025c1-6011-46d6-9199-bfbc6cb61087"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""3627629d-015f-400a-abcd-ed26ed17e79d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""d76885fe-2c34-484c-b40a-6bf6ef969689"",
-                    ""path"": """",
+                    ""id"": ""11b93f17-ae65-4e2e-a559-9bb390475f0c"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MoveUp"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4edf86ec-da7f-4876-ac00-907dec8ef9e3"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -386,7 +405,8 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         m_FreeRoam_EndTurn = m_FreeRoam.FindAction("EndTurn", throwIfNotFound: true);
         // UnitActionSelection
         m_UnitActionSelection = asset.FindActionMap("UnitActionSelection", throwIfNotFound: true);
-        m_UnitActionSelection_MoveUp = m_UnitActionSelection.FindAction("MoveUp", throwIfNotFound: true);
+        m_UnitActionSelection_Interact = m_UnitActionSelection.FindAction("Interact", throwIfNotFound: true);
+        m_UnitActionSelection_Cancel = m_UnitActionSelection.FindAction("Cancel", throwIfNotFound: true);
         // UnitActionExecution
         m_UnitActionExecution = asset.FindActionMap("UnitActionExecution", throwIfNotFound: true);
         m_UnitActionExecution_Interact = m_UnitActionExecution.FindAction("Interact", throwIfNotFound: true);
@@ -520,12 +540,14 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
     // UnitActionSelection
     private readonly InputActionMap m_UnitActionSelection;
     private IUnitActionSelectionActions m_UnitActionSelectionActionsCallbackInterface;
-    private readonly InputAction m_UnitActionSelection_MoveUp;
+    private readonly InputAction m_UnitActionSelection_Interact;
+    private readonly InputAction m_UnitActionSelection_Cancel;
     public struct UnitActionSelectionActions
     {
         private @TacticalStrategy m_Wrapper;
         public UnitActionSelectionActions(@TacticalStrategy wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveUp => m_Wrapper.m_UnitActionSelection_MoveUp;
+        public InputAction @Interact => m_Wrapper.m_UnitActionSelection_Interact;
+        public InputAction @Cancel => m_Wrapper.m_UnitActionSelection_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_UnitActionSelection; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -535,16 +557,22 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_UnitActionSelectionActionsCallbackInterface != null)
             {
-                @MoveUp.started -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
-                @MoveUp.performed -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
-                @MoveUp.canceled -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnMoveUp;
+                @Interact.started -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnInteract;
+                @Cancel.started -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_UnitActionSelectionActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_UnitActionSelectionActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MoveUp.started += instance.OnMoveUp;
-                @MoveUp.performed += instance.OnMoveUp;
-                @MoveUp.canceled += instance.OnMoveUp;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -711,7 +739,8 @@ public class @TacticalStrategy : IInputActionCollection, IDisposable
     }
     public interface IUnitActionSelectionActions
     {
-        void OnMoveUp(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IUnitActionExecutionActions
     {

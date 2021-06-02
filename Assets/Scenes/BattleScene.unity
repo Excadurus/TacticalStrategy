@@ -379,6 +379,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fa749a258b2b44ca3ddf80fa73819e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1443025904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602639465670277278, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4529408532087138749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327003a6375105e44be63fdb03ee3538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1456497888 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2462877760234529762, guid: 9178ce92cd15b4e4e90c2da0baac550b,
@@ -389,6 +401,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8fa749a258b2b44ca3ddf80fa73819e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1580589088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602639464127534942, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4529408532087138749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327003a6375105e44be63fdb03ee3538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1678088495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602639464594779697, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4529408532087138749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327003a6375105e44be63fdb03ee3538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1693798884 stripped
@@ -500,10 +536,6 @@ MonoBehaviour:
     m_ActionId: 85cc6b21-1a62-4086-a795-37092854aa37
     m_ActionName: Cursor/MoveRight[/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 189999e5-e162-4f00-91b2-6a5aea2dbc12
-    m_ActionName: Cursor2/MoveUp
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1809190826}
         m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
@@ -520,7 +552,19 @@ MonoBehaviour:
     m_ActionId: 53fa64e8-80bf-4c50-bfbd-8bccb253afa3
     m_ActionName: ActionTargetSelection/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809190826}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: FreeRoamInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3adb6575-132e-4ed3-b4be-62e49f1c1119
     m_ActionName: FreeRoam/Interact[/Keyboard/a]
   - m_PersistentCalls:
@@ -635,6 +679,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0b18cdfd-b9a7-4424-8f73-30db6ec4fa68
     m_ActionName: UnitActionExecution/MoveRight[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809190826}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ActionSelectionInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 949025c1-6011-46d6-9199-bfbc6cb61087
+    m_ActionName: UnitActionSelection/Interact[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809190826}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ActionSelectionCancelWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3627629d-015f-400a-abcd-ed26ed17e79d
+    m_ActionName: UnitActionSelection/Cancel[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: FreeRoam
@@ -756,6 +832,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ac744432d11ba04090b00db354363b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2020108996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602639464450882215, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+    type: 3}
+  m_PrefabInstance: {fileID: 4529408532087138749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327003a6375105e44be63fdb03ee3538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1053491749443638939
@@ -993,21 +1081,45 @@ PrefabInstance:
       propertyPath: tile
       value: 
       objectReference: {fileID: 1861930261}
+    - target: {fileID: 8602639464127534942, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+        type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: 11400000, guid: d872044d443f12c43b16dc6debde828f,
+        type: 2}
     - target: {fileID: 8602639464450882215, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
         type: 3}
       propertyPath: tile
       value: 
       objectReference: {fileID: 1693798884}
+    - target: {fileID: 8602639464450882215, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+        type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: 11400000, guid: d872044d443f12c43b16dc6debde828f,
+        type: 2}
     - target: {fileID: 8602639464594779697, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
         type: 3}
       propertyPath: tile
       value: 
       objectReference: {fileID: 1231284874}
+    - target: {fileID: 8602639464594779697, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+        type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: 11400000, guid: d872044d443f12c43b16dc6debde828f,
+        type: 2}
     - target: {fileID: 8602639465670277278, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
         type: 3}
       propertyPath: tile
       value: 
       objectReference: {fileID: 1456497888}
+    - target: {fileID: 8602639465670277278, guid: 22ef7a8491aa8404ebd3773abc4f7a25,
+        type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: 11400000, guid: d872044d443f12c43b16dc6debde828f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22ef7a8491aa8404ebd3773abc4f7a25, type: 3}
 --- !u!1001 &5307178924873971458
@@ -1017,6 +1129,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2462877759583698764, guid: 9178ce92cd15b4e4e90c2da0baac550b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 2020108996}
+    - target: {fileID: 2462877760234529762, guid: 9178ce92cd15b4e4e90c2da0baac550b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 1443025904}
+    - target: {fileID: 2462877760880325001, guid: 9178ce92cd15b4e4e90c2da0baac550b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 1580589088}
+    - target: {fileID: 2462877761421189713, guid: 9178ce92cd15b4e4e90c2da0baac550b,
+        type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 1678088495}
     - target: {fileID: 8110536066841916994, guid: 9178ce92cd15b4e4e90c2da0baac550b,
         type: 3}
       propertyPath: m_RootOrder

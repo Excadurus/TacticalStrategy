@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Move Action
   m_EditorClassIdentifier: 
   isAvailable: 0
-  ExecutionInteract: {fileID: 0}
-  ExecutionMoveUpEvent: {fileID: 0}
-  ExecutionMoveDownEvent: {fileID: 0}
-  ExecutionMoveLeftEvent: {fileID: 0}
-  ExecutionMoveRightEvent: {fileID: 0}
-  ExecutionCancel: {fileID: 0}
+  ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee, type: 2}
+  ExecutionMoveUpEvent: {fileID: 11400000, guid: 162784e02d499234dab439c60ef13e0f,
+    type: 2}
+  ExecutionMoveDownEvent: {fileID: 11400000, guid: 9396e3677b3bfe14894f2d870e56ca83,
+    type: 2}
+  ExecutionMoveLeftEvent: {fileID: 11400000, guid: 475ba5736405b5141ae4d9f2587b2e4a,
+    type: 2}
+  ExecutionMoveRightEvent: {fileID: 11400000, guid: cd409860c35d26b4ba4eba9b82f5d892,
+    type: 2}
+  ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}

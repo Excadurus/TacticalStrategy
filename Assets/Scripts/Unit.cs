@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     [SerializeField] int hp = 20;
     [SerializeField] int dmg = 10;
     [SerializeField] int movementRange = 5;
+    [SerializeField] public UnitActions moveAction;
 
 
     // Start is called before the first frame update

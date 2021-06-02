@@ -43,7 +43,7 @@
                     "id": "3adb6575-132e-4ed3-b4be-62e49f1c1119",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "EndTurn",
@@ -128,23 +128,42 @@
             "id": "f3b0e704-534d-4691-8161-3d950062cbd0",
             "actions": [
                 {
-                    "name": "MoveUp",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "189999e5-e162-4f00-91b2-6a5aea2dbc12",
+                    "id": "949025c1-6011-46d6-9199-bfbc6cb61087",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "3627629d-015f-400a-abcd-ed26ed17e79d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "d76885fe-2c34-484c-b40a-6bf6ef969689",
-                    "path": "",
+                    "id": "11b93f17-ae65-4e2e-a559-9bb390475f0c",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MoveUp",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4edf86ec-da7f-4876-ac00-907dec8ef9e3",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

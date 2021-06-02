@@ -7,6 +7,7 @@ public class DirectorStateMachine
     public DirectorState EndState { get; set; }
 
     public DirectorState TurnStartState { get; set; }
+    public DirectorState SelectedUnitState { get; set; }
 
 
 
@@ -20,6 +21,7 @@ public class DirectorStateMachine
         AIState = new AIState(director, this, enemyFaction);
         EndState = new EndState(director, this, null);
         TurnStartState = new TurnStartState(director, this, null);
+        SelectedUnitState = new SelectedUnitState(director, this, playerFaction);
     }
     public void Initialize()
     {

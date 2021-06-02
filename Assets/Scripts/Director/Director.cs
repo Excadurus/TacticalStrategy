@@ -7,6 +7,8 @@ public class Director : MonoBehaviour
 {
     [SerializeField] public Cursor cursor;
     [SerializeField] public InputWrapper inputWrapper;
+    [HideInInspector] public Unit selectedUnit;
+    [HideInInspector] public UnitActions selectedAction;
 
     [SerializeField] private int maxTurnCount = 20;
     private int currentTurnCount = 0;
@@ -20,6 +22,7 @@ public class Director : MonoBehaviour
 
     private void Awake()
     {
+        selectedUnit = null;
         dsm = new DirectorStateMachine(this, players[0], players[1]);
         dsm.Initialize();
     }

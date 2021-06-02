@@ -21,6 +21,12 @@ public class InputWrapper : MonoBehaviour
     public static event Action FreeRoamEndPlayerTurn;
     #endregion
 
+    #region "UnitActionSelection Input Events(Fields)"
+    //TODO: Static Events should be changed to non Statics Later
+    public static event Action ActionSelectionInteract;
+    public static event Action ActionSelectionCancel;
+    #endregion
+
     #region "UnitActionExecution Events(Fields)"
     // TODO: Static Events should be changed to non Statics Later
     [SerializeField] private SharedEvent ExecutionMoveUpEvent;
@@ -85,6 +91,10 @@ public class InputWrapper : MonoBehaviour
         {
             FreeRoamInteract.Invoke();
         }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            control.SwitchCurrentActionMap("UnitActionSelection");
+        }
     }
 
 
@@ -143,6 +153,10 @@ public class InputWrapper : MonoBehaviour
         {
             ExecutionInteract.Invoke();
         }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            control.SwitchCurrentActionMap("UnitActionSelection");
+        }
     }
 
 
@@ -151,6 +165,35 @@ public class InputWrapper : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             ExecutionCancel.Invoke();
+        }
+    }
+    #endregion
+
+
+    #region "UnitActionSelection Methods"
+
+    public void ActionSelectionInteractWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ActionSelectionInteract.Invoke();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            control.SwitchCurrentActionMap("UnitActionExecution");
+        }
+    }
+
+
+    public void ActionSelectionCancelWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ActionSelectionCancel.Invoke();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            control.SwitchCurrentActionMap("FreeRoam");
         }
     }
     #endregion
