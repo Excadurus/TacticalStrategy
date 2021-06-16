@@ -4,11 +4,11 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 
-
+    //TODO: Encapsulate
     [SerializeField] public Tile tile;
-    [SerializeField] int hp = 20;
-    [SerializeField] int dmg = 10;
-    [SerializeField] int movementRange = 5;
+    [SerializeField] public int hp = 20;
+    [SerializeField] public int dmg = 10;
+    [SerializeField] public int movementRange = 5;
     [SerializeField] public List<UnitActions> Actions;
 
 
