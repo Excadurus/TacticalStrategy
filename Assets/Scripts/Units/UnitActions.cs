@@ -34,7 +34,7 @@ public abstract class UnitActions : ScriptableObject
     protected abstract void Interact();
     protected abstract void Destroy();
 
-    private void Cancel()
+    protected void Cancel()
     {
         Destroy();
         ExecutionInteract.RemoveEvent(Interact);

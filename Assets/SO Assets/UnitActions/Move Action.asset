@@ -23,3 +23,4 @@ MonoBehaviour:
   ExecutionMoveRightEvent: {fileID: 11400000, guid: cd409860c35d26b4ba4eba9b82f5d892,
     type: 2}
   ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}
+  c: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}

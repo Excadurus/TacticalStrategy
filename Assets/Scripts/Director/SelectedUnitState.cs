@@ -32,7 +32,10 @@ public class SelectedUnitState : DirectorState
 
     private void SelectAction()
     {
-        director.selectedAction = director.selectedUnit.moveAction;
+
+        //temp
+        director.selectedAction = director.selectedUnit.Actions[0];
+        director.selectedAction.Act(director.selectedUnit);
         //dsm.changeState();
     }
 

@@ -163,6 +163,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 565133559}
     - target: {fileID: 234907831, guid: b6ed947e8b468ee4a87cfeab723d4326, type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092,
+        type: 2}
+    - target: {fileID: 234907831, guid: b6ed947e8b468ee4a87cfeab723d4326, type: 3}
       propertyPath: baseTile
       value: 
       objectReference: {fileID: 33229792}
@@ -270,18 +275,6 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 3927490309930735003}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1010207399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 234907831, guid: b6ed947e8b468ee4a87cfeab723d4326,
-    type: 3}
-  m_PrefabInstance: {fileID: 329386804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592c0b301c95b3a4ba279e69ac639a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &1013629921
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -731,7 +724,7 @@ MonoBehaviour:
   FreeRoamMoveUpEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010207399}
+      - m_Target: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
         m_TargetAssemblyTypeName: Cursor, Assembly-CSharp
         m_MethodName: MoveUp
         m_Mode: 1
@@ -746,7 +739,7 @@ MonoBehaviour:
   FreeRoamMoveDownEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010207399}
+      - m_Target: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
         m_TargetAssemblyTypeName: Cursor, Assembly-CSharp
         m_MethodName: MoveDown
         m_Mode: 1
@@ -761,7 +754,7 @@ MonoBehaviour:
   FreeRoamMoveLeftEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010207399}
+      - m_Target: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
         m_TargetAssemblyTypeName: Cursor, Assembly-CSharp
         m_MethodName: MoveLeft
         m_Mode: 1
@@ -776,7 +769,7 @@ MonoBehaviour:
   FreeRoamMoveRightEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010207399}
+      - m_Target: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
         m_TargetAssemblyTypeName: Cursor, Assembly-CSharp
         m_MethodName: MoveRight
         m_Mode: 1
@@ -1222,7 +1215,8 @@ PrefabInstance:
         type: 3}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1010207399}
+      objectReference: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092,
+        type: 2}
     - target: {fileID: 8881437741463096848, guid: 4ac842605e8798f4a9c686384ab7d7d3,
         type: 3}
       propertyPath: inputWrapper

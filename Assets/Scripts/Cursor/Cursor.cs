@@ -1,37 +1,18 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Cursor : MonoBehaviour
+[CreateAssetMenu]
+
+public class Cursor : ScriptableObject
 {
-
-    [SerializeField] public Tile baseTile;
+    //Make Private After you Create Pathfinder
+    public GameBoard gameboard;
+    private Tile baseTile;
     private Tile tile;
-    [SerializeField] public GameBoard gameboard;
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        tile = baseTile;
-        transform.SetParent(tile.transform);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.SetParent(tile.transform);
-        transform.localPosition = new Vector3(0, 0.5f, 0);
-    }
 
     private void OnEnable()
     {
-        tile = baseTile;
-        transform.SetParent(tile.transform);
-    }
-
-    private void OnDisable()
-    {
-        baseTile = tile;
     }
 
     public Tile getTile()
@@ -44,7 +25,7 @@ public class Cursor : MonoBehaviour
     {
         int row = tile.row;
         int col = tile.col;
-        if (row == GetBoardLength()-1) return;
+        if (row == GetBoardLength() - 1) return;
         tile = gameboard.rows[row + 1].tiles[col];
     }
 
@@ -60,7 +41,7 @@ public class Cursor : MonoBehaviour
     {
         int row = tile.row;
         int col = tile.col;
-        if (col == GetBoardWidth()-1) return;
+        if (col == GetBoardWidth() - 1) return;
         tile = gameboard.rows[row].tiles[col + 1];
     }
 
@@ -82,4 +63,10 @@ public class Cursor : MonoBehaviour
         return gameboard.rows.Length;
     }
 
+    public void Initialize(CursorHandler h)
+    {
+        gameboard= h.gameboard;
+        baseTile = h.baseTile;
+        tile = baseTile;
+    }
 }

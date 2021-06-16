@@ -5,11 +5,10 @@ using UnityEngine;
 public class MoveAction : UnitActions
 {
     private Path[] paths;
-    private Cursor c;
+    [SerializeField]private Cursor c;
 
     void OnEnable()
     {
-        c = GameObject.Find("Cursor").GetComponent<Cursor>();
     }
 
 
@@ -35,7 +34,7 @@ public class MoveAction : UnitActions
         if (c.getTile().CanMoveHere())
         {
             unit.tile = c.getTile();
-            Destroy();
+            Cancel();
         }
     }
 

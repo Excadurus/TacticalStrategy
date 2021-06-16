@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Unit : MonoBehaviour
     [SerializeField] int hp = 20;
     [SerializeField] int dmg = 10;
     [SerializeField] int movementRange = 5;
-    [SerializeField] public UnitActions moveAction;
+    [SerializeField] public List<UnitActions> Actions;
 
 
     // Start is called before the first frame update
