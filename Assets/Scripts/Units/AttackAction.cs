@@ -7,6 +7,7 @@ public class AttackAction : UnitActions
 {
     private List<Tile> enemies;
     [SerializeField] private Cursor c;
+    [SerializeField] private BattleDirector battleDirector;
 
 
     protected override void Destroy()
@@ -42,6 +43,7 @@ public class AttackAction : UnitActions
         if (enemies.Contains(c.getTile()))
         {
             //Use Battle Director
+            battleDirector.ConductBattle(unit, c.getTile().unit);
             Cancel();
         }
     }
