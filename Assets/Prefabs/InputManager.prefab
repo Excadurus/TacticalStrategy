@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3885278300160033472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3885278300160033475}
+  - component: {fileID: 3885278300160033474}
+  - component: {fileID: 3885278300160033485}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3885278300160033475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885278300160033472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6985881, y: 0.22257185, z: 3.8595405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3885278300160033474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885278300160033472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: edc84addb985c1c4c879cfdd263811e9,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ExecutionInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 53fa64e8-80bf-4c50-bfbd-8bccb253afa3
+    m_ActionName: ActionTargetSelection/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: PlayerMainInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3adb6575-132e-4ed3-b4be-62e49f1c1119
+    m_ActionName: FreeRoam/Interact[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: PlayerMainEndTurnWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb5c31d8-7df7-4132-9fa8-03209f168105
+    m_ActionName: FreeRoam/EndTurn[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: EndAITurnWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 880f11ba-304d-4c06-a817-1d190424e36f
+    m_ActionName: AITurnActions/EndAITurn[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ExecutionInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 12c8937d-50be-4393-946c-e69f3fbc002b
+    m_ActionName: UnitActionExecution/Cancel[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ActionSelectionInteractWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 949025c1-6011-46d6-9199-bfbc6cb61087
+    m_ActionName: UnitActionSelection/Interact[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ActionSelectionCancelWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3627629d-015f-400a-abcd-ed26ed17e79d
+    m_ActionName: UnitActionSelection/Cancel[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: PlayerMainMovementWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b7870d10-eefe-4379-9a3c-807e6f326e7c
+    m_ActionName: Player Turn - Main/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3885278300160033485}
+        m_TargetAssemblyTypeName: InputWrapper, Assembly-CSharp
+        m_MethodName: ExecutionMovementWrapper
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0197e8f4-0c6f-4727-9db2-8ab04832ebe8
+    m_ActionName: Player Turn - Unit Action Execution/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player Turn - Main
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &3885278300160033485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885278300160033472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ec628ef892cf544bea08e13591c197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: 3885278300160033474}
+  playerTurnMain: {fileID: 11400000, guid: 0a8ba16ad6abacb4bbdaf3a45b20adc9, type: 2}
+  playerTurnSelection: {fileID: 11400000, guid: 5eb7e4889a9d47a4c83f9595565faaec,
+    type: 2}
+  playerTurnExecution: {fileID: 11400000, guid: 5eb7e4889a9d47a4c83f9595565faaec,
+    type: 2}
+  enemyTurnMain: {fileID: 11400000, guid: c17d29b8fa2d989429e590ada4ffd352, type: 2}
+  playerTurnMainMovement:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
+        m_TargetAssemblyTypeName: Cursor, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  playerTurnMainInteract: {fileID: 11400000, guid: 359ce1864a5ca904d9287b4bd4882064,
+    type: 2}
+  playerTurnMainEndTurn: {fileID: 11400000, guid: fa3cb45e504aa8a408551a24640ae5e6,
+    type: 2}
+  ExecutionMovement: {fileID: 0}
+  ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee, type: 2}
+  ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}
+  EndAITurn: {fileID: 11400000, guid: 54a8fadea4b90444c8fbd46b57b69281, type: 2}

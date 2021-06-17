@@ -9,143 +9,132 @@ public class InputWrapper : MonoBehaviour
 {
     //Input System
     private TacticalStrategy input;
-    private PlayerInput control;
+    [SerializeField] private PlayerInput control;
 
-    #region "FreeRoam Input Events(Fields)"
-    //TODO: Static Events should be changed to non Statics Later
-    [SerializeField] UnityEvent FreeRoamMoveUpEvent;
-    [SerializeField] UnityEvent FreeRoamMoveDownEvent;
-    [SerializeField] UnityEvent FreeRoamMoveLeftEvent;
-    [SerializeField] UnityEvent FreeRoamMoveRightEvent;
-    public static event Action FreeRoamInteract;
-    public static event Action FreeRoamEndPlayerTurn;
+    #region "Action Map Switch Flags"
+    [SerializeField] private ActionMapFlag playerTurnMain;
+    [SerializeField] private ActionMapFlag playerTurnSelection;
+    [SerializeField] private ActionMapFlag playerTurnExecution;
+    [SerializeField] private ActionMapFlag enemyTurnMain;
     #endregion
 
-    #region "UnitActionSelection Input Events(Fields)"
+    #region "Player Turn - Main Input Events(Fields)"
+    //TODO: Static Events should be changed to non Statics Later
+    [SerializeField] private UnityEvent<Vector2> playerTurnMainMovement;
+    [SerializeField] private SharedEvent playerTurnMainInteract;
+    [SerializeField] private SharedEvent playerTurnMainEndTurn;
+    #endregion
+
+    #region "Player Turn - Unit Action Selection Input Events(Fields)"
     //TODO: Static Events should be changed to non Statics Later
     public static event Action ActionSelectionInteract;
     public static event Action ActionSelectionCancel;
     #endregion
 
-    #region "UnitActionExecution Events(Fields)"
+    #region "Player Turn - Unit Action Execution Input Events(Fields)"
     // TODO: Static Events should be changed to non Statics Later
-    [SerializeField] private SharedEvent ExecutionMoveUpEvent;
-    [SerializeField] private SharedEvent ExecutionMoveDownEvent;
-    [SerializeField] private SharedEvent ExecutionMoveLeftEvent;
-    [SerializeField] private SharedEvent ExecutionMoveRightEvent;
+    [SerializeField] private SharedEvent ExecutionMovement;
     [SerializeField] private SharedEvent ExecutionInteract;
     [SerializeField] private SharedEvent ExecutionCancel;
     #endregion
 
-    #region "AITurnActions Events(Fields)"
+    #region "AI Turn - Main Input Events(Fields)"
     //TODO: Static Events should be changed to non Statics Later
-    [SerializeField] public static event Action EndAITurn;
+    [SerializeField] private SharedEvent EndAITurn;
     #endregion
 
 
 
-    public void Awake()
+    void Awake()
     {
         input = new TacticalStrategy();
-        control = GetComponent<PlayerInput>();
         
     }
 
-
-    #region "FreeRoam Methods"
-    public void FreeRoamMoveUpWrapper(InputAction.CallbackContext context)
+    void Update()
     {
-        if (context.phase == InputActionPhase.Performed)
+        CheckAndChangeActionMaps();
+    }
+
+    private void CheckAndChangeActionMaps()
+    {
+        if (playerTurnMain.IsSet())
         {
-            FreeRoamMoveUpEvent.Invoke();
+            control.SwitchCurrentActionMap("Player Turn - Main");
+        }
+        else if (playerTurnSelection.IsSet())
+        {
+            control.SwitchCurrentActionMap("Player Turn - Unit Action Selection");
+        }
+        else if (playerTurnExecution.IsSet())
+        {
+            control.SwitchCurrentActionMap("Player Turn - Unit Action Execution");
+        }
+        else if (enemyTurnMain.IsSet())
+        {
+            control.SwitchCurrentActionMap("AI Turn - Main");
         }
     }
 
-    public void FreeRoamMoveDownWrapper(InputAction.CallbackContext context)
+    #region "Player Turn - Main Methods"
+    public void PlayerMainMovementWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            FreeRoamMoveDownEvent.Invoke();
+            playerTurnMainMovement.Invoke(context.ReadValue<Vector2>());
         }
     }
 
-    public void FreeRoamMoveLeftWrapper(InputAction.CallbackContext context)
+    public void PlayerMainInteractWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            FreeRoamMoveLeftEvent.Invoke();
-        }
-    }
-
-    public void FreeRoamMoveRightWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            FreeRoamMoveRightEvent.Invoke();
-        }
-    }
-
-    public void FreeRoamInteractWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            FreeRoamInteract.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("UnitActionSelection");
+            playerTurnMainInteract.Invoke();
         }
     }
 
 
-    public void EndPlayerTurnWrapper(InputAction.CallbackContext context)
+    public void PlayerMainEndTurnWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            FreeRoamEndPlayerTurn.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("AITurnActions");
+            playerTurnMainEndTurn.Invoke();
         }
 
     }
     #endregion
 
 
+    #region "Player Turn - Unit Action Selection Methods"
 
-    #region "Execution Methods"
-    public void ExecutionMoveUpWrapper(InputAction.CallbackContext context)
+    public void ActionSelectionInteractWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            ExecutionMoveUpEvent.Invoke();
+            ActionSelectionInteract.Invoke();
         }
     }
 
-    public void ExecutionMoveDownWrapper(InputAction.CallbackContext context)
+
+    public void ActionSelectionCancelWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            ExecutionMoveDownEvent.Invoke();
+            ActionSelectionCancel.Invoke();
+        }
+    }
+    #endregion
+
+
+    #region "Player Turn - Unit Action Execution Methods"
+    public void ExecutionMovementWrapper(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ExecutionMovement.Invoke();
         }
     }
 
-    public void ExecutionMoveLeftWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            ExecutionMoveLeftEvent.Invoke();
-        }
-    }
-
-    public void ExecutionMoveRightWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            ExecutionMoveRightEvent.Invoke();
-        }
-    }
 
     public void ExecutionInteractWrapper(InputAction.CallbackContext context)
     {
@@ -153,10 +142,7 @@ public class InputWrapper : MonoBehaviour
         {
             ExecutionInteract.Invoke();
         }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("UnitActionSelection");
-        }
+
     }
 
 
@@ -170,43 +156,11 @@ public class InputWrapper : MonoBehaviour
     #endregion
 
 
-    #region "UnitActionSelection Methods"
-
-    public void ActionSelectionInteractWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            ActionSelectionInteract.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("UnitActionExecution");
-        }
-    }
-
-
-    public void ActionSelectionCancelWrapper(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            ActionSelectionCancel.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("FreeRoam");
-        }
-    }
-    #endregion
-
     public void EndAITurnWrapper(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
             EndAITurn.Invoke();
-        }
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            control.SwitchCurrentActionMap("FreeRoam");
         }
     }
 

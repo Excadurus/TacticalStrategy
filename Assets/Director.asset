@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af09a89c079a0349be55618c7a0616e, type: 3}
+  m_Name: Director
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
+  inputWrapper: {fileID: 11400000, guid: e47be28c6968b3f4299c6355e5fd0139, type: 2}
+  selectedUnit: {fileID: 0}
+  selectedAction: {fileID: 0}

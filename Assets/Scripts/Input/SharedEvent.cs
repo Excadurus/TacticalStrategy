@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "New Shared Event", menuName = "Input/Shared Event", order = 0)]
 
 public class SharedEvent : ScriptableObject
 {

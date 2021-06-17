@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1314ce5213e067544b994774205e55c2, type: 3}
+  m_Name: Enemy Turn Main State
+  m_EditorClassIdentifier: 
+  transitions:
+  - condition: {fileID: 11400000, guid: b8aa3d233f3e69845abd63c01408d1f1, type: 2}
+    to: {fileID: 11400000, guid: c32d9e5f9716d414a832ef0a1f6f98d8, type: 2}
+  enterActions:
+  - {fileID: 11400000, guid: f0b7cbd245f35e842b81ac2750629a1a, type: 2}
+  - {fileID: 11400000, guid: 029ec3ae47697734285cd3a999f83f84, type: 2}
+  updateActions: []
+  exitActions:
+  - {fileID: 11400000, guid: a4e98b444d3158e448c53b54ab15fdd9, type: 2}
+  stateEvents:
+  - {fileID: 11400000, guid: d9e1c0cff265e3e4c9a91e1139e4d42b, type: 2}

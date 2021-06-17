@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ed5866f424131cb418f4b4e9a3b87af0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sharedEvent: {instanceID: 0}
+  - turnEndFlag: {fileID: 11400000, guid: 98eddaeeaf0df0840be06e84830342c1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,8 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40a52a34105c5d8498bdd5531bd3a865, type: 3}
-  m_Name: New State Machine
+  m_Name: Director State Machine
   m_EditorClassIdentifier: 
-  states: []
-  startState: {fileID: 0}
+  states:
+  - {fileID: 11400000, guid: ee463615686f1814d8bb755f68ddc2bc, type: 2}
+  - {fileID: 11400000, guid: ec957133673cf7142928f35ab5a8ac7f, type: 2}
+  - {fileID: 11400000, guid: 82540ad31ed43e1468f451553d88c256, type: 2}
+  - {fileID: 11400000, guid: c98b947a7f842ab4ea592c977543c788, type: 2}
+  - {fileID: 11400000, guid: c32d9e5f9716d414a832ef0a1f6f98d8, type: 2}
+  - {fileID: 11400000, guid: 00b7be8c4813ce9499f6b7361a8cf34a, type: 2}
+  startState: {fileID: 11400000, guid: ee463615686f1814d8bb755f68ddc2bc, type: 2}
   anyTransitions: []

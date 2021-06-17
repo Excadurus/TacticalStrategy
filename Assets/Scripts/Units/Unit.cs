@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     [SerializeField] public int dmg = 10;
     [SerializeField] public int movementRange = 5;
     [SerializeField] public List<UnitActions> Actions;
+    public Player player;
 
 
     // Start is called before the first frame update

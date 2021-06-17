@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5322775071a284f9ed0244885fd86f, type: 3}
+  m_Name: Select Next Player
+  m_EditorClassIdentifier: 
+  playerDirector: {fileID: 11400000, guid: cf61e2a9f2f4421498cb05a70a1af9b3, type: 2}

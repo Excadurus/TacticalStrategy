@@ -40,21 +40,17 @@ public class MoveAction : UnitActions
 
     protected override void MoveUp()
     {
-      c.MoveUp();
     }
 
     protected override void MoveDown()
     {
-        c.MoveDown();
     }
 
     protected override void MoveLeft()
     {
-        c.MoveLeft();
     }
 
     protected override void MoveRight()
     {
-        c.MoveRight();
     }
 }

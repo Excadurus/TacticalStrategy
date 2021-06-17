@@ -6,14 +6,12 @@ using UnityEngine;
 
 public class Cursor : ScriptableObject
 {
+
     //Make Private After you Create Pathfinder
     public GameBoard gameboard;
     private Tile baseTile;
     private Tile tile;
 
-    private void OnEnable()
-    {
-    }
 
     public Tile getTile()
     {
@@ -21,37 +19,23 @@ public class Cursor : ScriptableObject
     }
 
 
-    public void MoveUp()
+    public void Move(Vector2 direction)
     {
         int row = tile.row;
         int col = tile.col;
-        if (row == GetBoardLength() - 1) return;
-        tile = gameboard.rows[row + 1].tiles[col];
+
+        
+        row = row + Mathf.CeilToInt(direction.y);
+        if (row < 0) row = 0;
+        if (row >= GetBoardWidth()) row = GetBoardWidth() - 1;
+
+        col = col + Mathf.CeilToInt(direction.x);
+        if (col < 0) col = 0;
+        if (col >= GetBoardLength()) col = GetBoardLength() - 1;
+
+        tile = gameboard.rows[row].tiles[col];
     }
 
-    public void MoveDown()
-    {
-        int row = tile.row;
-        int col = tile.col;
-        if (row == 0) return;
-        tile = gameboard.rows[row - 1].tiles[col];
-    }
-
-    public void MoveRight()
-    {
-        int row = tile.row;
-        int col = tile.col;
-        if (col == GetBoardWidth() - 1) return;
-        tile = gameboard.rows[row].tiles[col + 1];
-    }
-
-    public void MoveLeft()
-    {
-        int row = tile.row;
-        int col = tile.col;
-        if (col == 0) return;
-        tile = gameboard.rows[row].tiles[col - 1];
-    }
 
     public int GetBoardLength()
     {

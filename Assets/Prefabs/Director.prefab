@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8881437741463096849}
-  - component: {fileID: 8881437741463096848}
+  - component: {fileID: 8881437740262344566}
   m_Layer: 0
   m_Name: Director
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8881437741463096848
+--- !u!114 &8881437740262344566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8881437741463096855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af09a89c079a0349be55618c7a0616e, type: 3}
+  m_Script: {fileID: 11500000, guid: e438681fe7d9470408369d086e18864b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directorStateMachine: {fileID: 11400000, guid: bdd540771eb27ac4caa51dfdac7b6db8,
+    type: 2}
+  director: {fileID: 11400000, guid: 3bbd9c0233466064cac3bab290f498e9, type: 2}
+  playerDirector: {fileID: 11400000, guid: cf61e2a9f2f4421498cb05a70a1af9b3, type: 2}
+  turnDirector: {fileID: 11400000, guid: b646ca81dd6fb2f46901e55b8c61f870, type: 2}
   maxTurnCount: 20
-  AllyUnits: []
-  EnemyUnits: []
