@@ -6,12 +6,10 @@ using UnityEngine;
 
 public class Cursor : ScriptableObject
 {
-
     //Make Private After you Create Pathfinder
     public GameBoard gameboard;
     private Tile baseTile;
     private Tile tile;
-
 
     public Tile getTile()
     {

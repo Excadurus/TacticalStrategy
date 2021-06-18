@@ -245,7 +245,11 @@ MonoBehaviour:
     type: 2}
   playerTurnMainEndTurn: {fileID: 11400000, guid: fa3cb45e504aa8a408551a24640ae5e6,
     type: 2}
-  ExecutionMovement: {fileID: 0}
+  ActionSelectionInteract: {fileID: 11400000, guid: 12f1fbd8827540141b631dadfd0b1b9b,
+    type: 2}
+  ActionSelectionCancel: {fileID: 11400000, guid: b1000a3d904b0ba48b1a764d021fc657,
+    type: 2}
+  ExecutionMovement: {fileID: 11400000, guid: 20e39824c9562f845bc195b9dbfa57fb, type: 2}
   ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee, type: 2}
   ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}
   EndAITurn: {fileID: 11400000, guid: 54a8fadea4b90444c8fbd46b57b69281, type: 2}

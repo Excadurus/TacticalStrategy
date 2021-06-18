@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2c4f5c8d72f314c9bca12517060209, type: 3}
   m_Name: Attack Action
   m_EditorClassIdentifier: 
-  isAvailable: 0
-  ExecutionInteract: {fileID: 0}
-  ExecutionMoveUpEvent: {fileID: 0}
-  ExecutionMoveDownEvent: {fileID: 0}
-  ExecutionMoveLeftEvent: {fileID: 0}
-  ExecutionMoveRightEvent: {fileID: 0}
-  ExecutionCancel: {fileID: 0}
-  c: {fileID: 0}
+  ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee, type: 2}
+  ExecutionMovementEvent: {fileID: 11400000, guid: 20e39824c9562f845bc195b9dbfa57fb,
+    type: 2}
+  ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}
+  c: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}
+  battleDirector: {fileID: 11400000, guid: 17ecd673f9cf52c4ca32777d40eb44a4, type: 2}

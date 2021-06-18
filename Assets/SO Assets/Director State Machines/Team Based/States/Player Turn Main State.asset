@@ -15,9 +15,12 @@ MonoBehaviour:
   transitions:
   - condition: {fileID: 11400000, guid: b8aa3d233f3e69845abd63c01408d1f1, type: 2}
     to: {fileID: 11400000, guid: c32d9e5f9716d414a832ef0a1f6f98d8, type: 2}
+  - condition: {fileID: 11400000, guid: 3ef179fb0f52b854b8619959ae42fe9b, type: 2}
+    to: {fileID: 11400000, guid: 94328b77ae241ab48ae23c2383c5b514, type: 2}
   enterActions:
   - {fileID: 11400000, guid: 97a399cb5ded35f4792256fef60cb340, type: 2}
   updateActions: []
   exitActions: []
   stateEvents:
   - {fileID: 11400000, guid: a8f667ca917d4e84c924c520e96b004a, type: 2}
+  - {fileID: 11400000, guid: 9ad793dbbf62bb74b9957cd6093e27cc, type: 2}

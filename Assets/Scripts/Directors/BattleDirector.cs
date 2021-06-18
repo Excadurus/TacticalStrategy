@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu]
+
+[CreateAssetMenu(fileName = "Battle Director", menuName = "Directors/Battle Director", order = 3)]
+
 
 public class BattleDirector : ScriptableObject
 {

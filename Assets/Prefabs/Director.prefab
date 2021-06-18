@@ -45,7 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directorStateMachine: {fileID: 11400000, guid: bdd540771eb27ac4caa51dfdac7b6db8,
     type: 2}
-  director: {fileID: 11400000, guid: 3bbd9c0233466064cac3bab290f498e9, type: 2}
   playerDirector: {fileID: 11400000, guid: cf61e2a9f2f4421498cb05a70a1af9b3, type: 2}
   turnDirector: {fileID: 11400000, guid: b646ca81dd6fb2f46901e55b8c61f870, type: 2}
+  battleDirector: {fileID: 11400000, guid: 17ecd673f9cf52c4ca32777d40eb44a4, type: 2}
+  actionDirector: {fileID: 11400000, guid: 6569fc6fc32d6c344b2df6179661d4df, type: 2}
   maxTurnCount: 20

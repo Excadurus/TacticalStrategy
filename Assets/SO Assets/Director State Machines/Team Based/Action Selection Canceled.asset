@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34917c48ea95f2541ab6844b175e93e8, type: 3}
-  m_Name: TurnEndFlag
+  m_Name: Action Selection Canceled
   m_EditorClassIdentifier: 

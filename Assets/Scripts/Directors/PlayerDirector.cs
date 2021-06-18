@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Player Director", menuName = "Directors/Player Director", order = 2)]
+
 public class PlayerDirector : ScriptableObject
 {
     private List<Player> players;
@@ -17,6 +18,12 @@ public class PlayerDirector : ScriptableObject
     {
         currentPlayer = 0;
     }
+
+    void OnDisable()
+    {
+        currentPlayer = 0;
+    }
+
 
     public Player GetCurrentPlayer()
     {

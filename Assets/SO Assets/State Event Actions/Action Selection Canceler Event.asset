@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e2f5d19097c0f42be8823342a83aaf, type: 3}
+  m_Name: Action Selection Canceler Event
+  m_EditorClassIdentifier: 
+  sharedEvent: {fileID: 11400000, guid: b1000a3d904b0ba48b1a764d021fc657, type: 2}
+  actionSelectionCanceledFlag: {fileID: 11400000, guid: 7d8813d0c3228234eaeda4deb289bae3,
+    type: 2}
+  actionDirector: {fileID: 11400000, guid: 6569fc6fc32d6c344b2df6179661d4df, type: 2}

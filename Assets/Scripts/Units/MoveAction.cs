@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Move Action", menuName = "Unit Actions/Move", order = 1)]
 public class MoveAction : UnitActions
 {
     private Path[] paths;
     [SerializeField]private Cursor c;
-
-    void OnEnable()
-    {
-    }
 
 
     protected override void Destroy()
@@ -38,19 +34,8 @@ public class MoveAction : UnitActions
         }
     }
 
-    protected override void MoveUp()
+    protected override void Move(Vector2 direction)
     {
-    }
-
-    protected override void MoveDown()
-    {
-    }
-
-    protected override void MoveLeft()
-    {
-    }
-
-    protected override void MoveRight()
-    {
+        c.Move(direction);
     }
 }

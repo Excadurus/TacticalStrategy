@@ -12,15 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5617c36343a4743903f85611c7f1bf, type: 3}
   m_Name: Move Action
   m_EditorClassIdentifier: 
-  isAvailable: 0
   ExecutionInteract: {fileID: 11400000, guid: e33052c0c61ebc644be0bf7dc9143bee, type: 2}
-  ExecutionMoveUpEvent: {fileID: 11400000, guid: 162784e02d499234dab439c60ef13e0f,
-    type: 2}
-  ExecutionMoveDownEvent: {fileID: 11400000, guid: 9396e3677b3bfe14894f2d870e56ca83,
-    type: 2}
-  ExecutionMoveLeftEvent: {fileID: 11400000, guid: 475ba5736405b5141ae4d9f2587b2e4a,
-    type: 2}
-  ExecutionMoveRightEvent: {fileID: 11400000, guid: cd409860c35d26b4ba4eba9b82f5d892,
+  ExecutionMovementEvent: {fileID: 11400000, guid: 8c01bcb2ce7a41947ab73e4d64c23d75,
     type: 2}
   ExecutionCancel: {fileID: 11400000, guid: bd8e131f0df05354f99532ecd451b1a9, type: 2}
   c: {fileID: 11400000, guid: 59a05d3aa5d54c74193531a5e948b092, type: 2}

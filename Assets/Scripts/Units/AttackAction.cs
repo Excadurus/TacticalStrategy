@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Attack Action", menuName = "Unit Actions/Attack", order = 2)]
 
 public class AttackAction : UnitActions
 {
@@ -48,20 +48,9 @@ public class AttackAction : UnitActions
         }
     }
 
-    protected override void MoveUp()
+    protected override void Move(Vector2 direction)
     {
-    }
-
-    protected override void MoveDown()
-    {
-    }
-
-    protected override void MoveLeft()
-    {
-    }
-
-    protected override void MoveRight()
-    {
+        c.Move(direction);
     }
 
 }

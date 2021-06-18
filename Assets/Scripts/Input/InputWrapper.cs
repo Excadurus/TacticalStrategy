@@ -26,20 +26,18 @@ public class InputWrapper : MonoBehaviour
     #endregion
 
     #region "Player Turn - Unit Action Selection Input Events(Fields)"
-    //TODO: Static Events should be changed to non Statics Later
-    public static event Action ActionSelectionInteract;
-    public static event Action ActionSelectionCancel;
+    [SerializeField] private SharedEvent ActionSelectionInteract;
+    [SerializeField] private SharedEvent ActionSelectionCancel;
     #endregion
 
     #region "Player Turn - Unit Action Execution Input Events(Fields)"
     // TODO: Static Events should be changed to non Statics Later
-    [SerializeField] private SharedEvent ExecutionMovement;
+    [SerializeField] private SharedMovementEvent ExecutionMovement;
     [SerializeField] private SharedEvent ExecutionInteract;
     [SerializeField] private SharedEvent ExecutionCancel;
     #endregion
 
     #region "AI Turn - Main Input Events(Fields)"
-    //TODO: Static Events should be changed to non Statics Later
     [SerializeField] private SharedEvent EndAITurn;
     #endregion
 
@@ -131,7 +129,7 @@ public class InputWrapper : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            ExecutionMovement.Invoke();
+            ExecutionMovement.Invoke(context.ReadValue<Vector2>());
         }
     }
 

@@ -7,10 +7,10 @@ public class DirectorMonoBehaviour : MonoBehaviour
 {
     [SerializeField] private StateMachine directorStateMachine;
 
-    [SerializeField] private Director director;
     [SerializeField] private PlayerDirector playerDirector;
     [SerializeField] private TurnDirector turnDirector;
-  
+    [SerializeField] private BattleDirector battleDirector;
+    [SerializeField] private ActionDirector actionDirector;
 
 
     //TODO: Replace these with Initialization code
